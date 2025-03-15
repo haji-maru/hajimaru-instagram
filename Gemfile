@@ -24,6 +24,7 @@ gem 'jbuilder', '~> 2.7'
 
 gem 'concurrent-ruby', '1.3.4'
 gem 'hamlit'
+gem 'annotate'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
