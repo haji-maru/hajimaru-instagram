@@ -1,3 +1,23 @@
 .container
-  .profile-page__user-display-name
-    %p= @user.username
+  .profile-header
+    .back-button
+      = link_to :back do
+        = image_tag 'back-icon', class: 'header-back'
+
+    .profile-username
+      %p= @user.username
+
+  .profile-avatar
+    = image_tag '', class: 'avatar-icon hidden'
+    = image_tag 'default-avatar.png', class: 'avatar-icon hidden'
+
+  .profile-info
+    .my-posts
+      %p.count 44
+      %p.content Posts
+    .my-followers
+      %p.count 110
+      %p.content Followers
+    .my-followings
+      %p.count 44
+      %p.content Following
