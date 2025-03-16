@@ -1,6 +1,6 @@
 .bottom-bar {
-  position: -webkit-sticky;
-  position: sticky;
+  position: fixed;
+  bottom: 16px;
   left: 50%;
   transform: translateX(-50%);
 }
