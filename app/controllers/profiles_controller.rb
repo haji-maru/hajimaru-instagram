@@ -17,6 +17,7 @@ class ProfilesController < ApplicationController
     else
       flash.now[:error] = '更新できませんでした'
       render :edit
+    end
   end
 
   private
