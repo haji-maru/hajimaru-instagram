@@ -12,4 +12,7 @@
 #  index_profiles_on_user_id  (user_id)
 #
 class Profile < ApplicationRecord
+
+  belongs_to :user
+
 end
