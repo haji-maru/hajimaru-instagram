@@ -8,8 +8,10 @@
       %p= @user.username
 
   .profile-avatar
-    = image_tag '', class: 'avatar-icon hidden'
-    = image_tag 'default-avatar.png', class: 'avatar-icon hidden'
+    - if @profile.avatar.attached?
+      = image_tag '', class: 'avatar-icon'
+    - else
+      = image_tag 'default-avatar.png', class: 'avatar-icon'
 
   .profile-info
     .my-posts
