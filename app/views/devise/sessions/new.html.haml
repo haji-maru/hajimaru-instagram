@@ -1,0 +1,17 @@
+= image_tag 'form-img.png', class: 'form-image'
+.container
+  .form-image
+  = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+    .field
+      = f.label :Email
+      %br/
+      = f.email_field :email, autofocus: true, autocomplete: "email", class: 'text'
+    .field
+      = f.label :Password
+      %br/
+      = f.password_field :password, autocomplete: "current-password", class: 'text'
+    .password-reset-link
+      = render "devise/shared/links"
+    .actions
+      = f.submit "LOGIN", class: 'btn-primary'
+= image_tag 'bottom-bar', class: 'bottom-bar'
