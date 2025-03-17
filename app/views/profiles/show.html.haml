@@ -9,9 +9,12 @@
 
   .profile-avatar
     - if @profile.avatar.attached?
-      = image_tag '', class: 'avatar-icon'
+      = image_tag '', class: 'avatar-icon', id: 'avatar-preview'
     - else
-      = image_tag 'default-avatar.png', class: 'avatar-icon'
+      = image_tag 'default-avatar.png', class: 'avatar-icon', id: 'avatar-preview'
+
+    = form_with(model: @profile, url: profile_path, method: 'put', local: true) do |f|
+      = f.file_field :avatar, class: 'hidden', id: 'avatar-input'
 
   .profile-info
     .my-posts
