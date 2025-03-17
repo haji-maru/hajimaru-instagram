@@ -12,7 +12,7 @@ class ProfilesController < ApplicationController
 
   def update
     @profile = current_user.prepare_profile
-    @profile = assign_attributes(profile_params)
+    @profile.assign_attributes(profile_params)
     if @profile.save
       redirect_to profile_path, notice: '更新できました'
     else
