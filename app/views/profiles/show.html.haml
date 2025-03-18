@@ -9,7 +9,7 @@
 
   .profile-avatar
     - if @profile.avatar.attached?
-      = image_tag '', class: 'avatar-icon', id: 'avatar-preview'
+      = image_tag url_for(@profile.avatar), class: 'avatar-icon', id: 'avatar-preview'
     - else
       = image_tag 'default-avatar.png', class: 'avatar-icon', id: 'avatar-preview'
 
