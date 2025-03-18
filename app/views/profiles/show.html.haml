@@ -15,6 +15,7 @@
 
     = form_with(model: @profile, url: profile_path, method: 'put', local: true) do |f|
       = f.file_field :avatar, class: 'hidden', id: 'avatar-input'
+      = f.submit :avatar, class: 'hidden', id: 'avatar-submit'
 
   .profile-info
     .my-posts
