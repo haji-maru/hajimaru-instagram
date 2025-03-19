@@ -1,0 +1,35 @@
+.container
+  .create-icon
+    = image_tag 'photo-camera.png'
+  .post
+    .post-header
+      .user-info
+        %img.profile-pic{src: "profile_jmax_21.jpg", alt: "Jmax_21 profile picture"}
+        .username Jmax_21
+        .time 3 hours ago
+
+    .post-content
+      .image-gallery
+        .main-image
+          %img{src: "summer_portrait.jpg", alt: "Person with stylish earrings by pool"}
+        .side-images
+          %img{src: "beach_chairs_sunset.jpg", alt: "Beach chairs at sunset"}
+          %img{src: "overwater_bungalows.jpg", alt: "Overwater bungalows and swimming pool"}
+
+    .post-actions
+      .like-button
+        %i.icon-heart
+        %span 12,000
+      .comment-button
+        %i.icon-comment
+      .share-button
+        %i.icon-share
+
+    .post-comments
+      .comment
+        %strong Jasmine
+        and 12,000 other liked your post
+
+      .caption
+        %strong Jmax_21
+        Summer holiday :3
