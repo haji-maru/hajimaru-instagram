@@ -14,4 +14,5 @@
 #  index_timelines_on_user_id  (user_id)
 #
 class Timeline < ApplicationRecord
+  belongs_to :user
 end
