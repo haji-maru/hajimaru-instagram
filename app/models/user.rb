@@ -26,4 +26,10 @@ class User < ApplicationRecord
   validates :username, presence: true
   validates :username, uniqueness: true
   validates :username, length: { minimum: 2, maximum: 20 }
+
+  has_one :profile, dependent: :destroy
+
+  def prepare_profile
+    profile || build_profile
+  end
 end
