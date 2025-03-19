@@ -16,7 +16,7 @@ class TimelinesController < ApplicationController
   def create
     @timeline = current_user.timelines.build(timeline_params)
     if @timeline.save
-        redirect_to timelines_path, notice: '保存できました'
+      redirect_to timelines_path, notice: '保存できました'
     else
       flash.now[:error] = '保存に失敗しました'
     end
