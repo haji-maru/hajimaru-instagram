@@ -1,10 +1,9 @@
 class TimelinesController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_timeline, only: [:index, :new]
 
   def index
     @timelines = Timeline.all
-    @profile = current_user.prepare_profile
-    @user = current_user
   end
 
   def show
@@ -17,5 +16,12 @@ class TimelinesController < ApplicationController
   end
 
   def destroy
+  end
+
+  private
+
+  def set_timeline
+    @profile = current_user.prepare_profile
+    @user = current_user
   end
 end
