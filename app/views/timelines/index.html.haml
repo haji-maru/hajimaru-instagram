@@ -1,12 +1,16 @@
 .container
-  .create-icon
-    = image_tag 'photo-camera.png'
-  .post
-    .post-header
-      .user-info
-        %img.profile-pic{src: "profile_jmax_21.jpg", alt: "Jmax_21 profile picture"}
-        .username Jmax_21
-        .time 3 hours ago
+  = link_to new_timeline_path do
+    .timeline-create-icon
+      = image_tag 'photo-camera.png'
+  .timeline-post
+    .timeline-post-header
+      .timeline-avatar
+        = image_tag url_for(@profile.avatar)
+      .timeline-info
+        .timeline-username
+          %p= @user.username
+        .timeline-post-time
+          .time 3 hours ago
 
     .post-content
       .image-gallery
