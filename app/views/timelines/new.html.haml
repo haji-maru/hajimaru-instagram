@@ -8,7 +8,7 @@
     .post
       %p post
 
-      %ul
+  %ul
     - @timeline.errors.full_messages.each do |message|
       %li= message
 
@@ -17,3 +17,15 @@
       = image_tag url_for(@profile.avatar)
     .timeline-username
       %p= @user.username
+
+  = form_with(model: @timeline, url: timelines_path, method: 'post', local: true) do |f|
+    .field
+      = f.label :content, '投稿内容'
+      %div
+        = f.text_field :content, class: 'text'
+    .field
+      = f.label :images, '投稿画像'
+      %div
+        = f.file_field :images
+    %div
+      = f.submit 'Submit', class: 'hidden'
