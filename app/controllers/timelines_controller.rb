@@ -3,6 +3,8 @@ class TimelinesController < ApplicationController
 
   def index
     @timelines = Timeline.all
+    @profile = current_user.prepare_profile
+    @user = current_user
   end
 
   def show
