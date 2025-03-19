@@ -5,4 +5,6 @@ Rails.application.routes.draw do
   root to: 'posts#index'
 
   resource :profile, only: [:show, :edit, :update]
+
+  resources :timelines, only: [:index, :show, :create, :destroy]
 end
