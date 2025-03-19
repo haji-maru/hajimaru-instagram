@@ -7,3 +7,13 @@
       %p status
     .post
       %p post
+
+      %ul
+    - @timeline.errors.full_messages.each do |message|
+      %li= message
+
+  .timeline-contributor
+    .timeline-avatar
+      = image_tag url_for(@profile.avatar)
+    .timeline-username
+      %p= @user.username
