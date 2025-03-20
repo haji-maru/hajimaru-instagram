@@ -1,0 +1,67 @@
+.timeline-create-icon {
+  img {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.timeline-post {
+  margin-top: 40px;
+}
+
+.timeline-post-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.timeline-avatar {
+  img {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+.timeline-info {
+}
+
+.timeline-username {
+}
+
+.timeline-post-time {
+}
+
+.post-content {
+  margin-top: 16px;
+}
+
+.image-gallery {
+  display: flex;
+  gap: 8px;
+}
+
+.main-image {
+}
+
+.side-images {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.post-actions {
+  display: flex;
+  gap: 20px;
+  margin-top: 14px;
+}
+
+.like-button {
+}
+
+.comment-button {
+}
+
+.share-button {
+}
+
+// new
