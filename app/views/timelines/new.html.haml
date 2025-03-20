@@ -1,12 +1,12 @@
 .container
   .timeline-create-header
-    .cancel
+    .timeline-cancel
       = link_to :back do
-        %p cancel
-    .head
-      %p status
-    .post#images-submit
-      %p post
+        %p Cancel
+    .timeline-head
+      %p Status
+    .timeline-submit#images-submit
+      = image_tag 'post.png'
 
   %ul
     - @timeline.errors.full_messages.each do |message|
@@ -20,11 +20,11 @@
 
   = form_with(model: @timeline, url: timelines_path, method: 'post', local: true) do |f|
     .field
-      = f.label :content, '投稿内容'
+      = f.label :content, '投稿内容', class: 'hidden'
       %div
         = f.text_field :content, class: 'text'
     .field
-      = f.label :images, '+Album', id: 'images-open'
+      = f.label :images, '+ Album', class: 'images-select', id: 'images-open'
       %div
         = f.file_field :images, class: 'hidden', id: 'images-select'
     %div
