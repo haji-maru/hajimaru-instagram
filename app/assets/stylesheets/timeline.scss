@@ -108,3 +108,15 @@
   color: #000;
   cursor: pointer;
 }
+
+.timeline-preview {
+  margin-top: 20px;
+}
+
+.preview-image {
+  width: 200px; /* 幅を200pxに設定 */
+  height: auto; /* 高さは自動調整（縦横比を維持） */
+  -o-object-fit: cover;
+  object-fit: cover; /* 画像が枠に収まるように切り抜く */
+  margin: 10px; /* 画像間のスペース */
+}
