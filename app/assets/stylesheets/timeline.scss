@@ -120,3 +120,8 @@
   object-fit: cover; /* 画像が枠に収まるように切り抜く */
   margin: 10px; /* 画像間のスペース */
 }
+
+.disabled {
+  opacity: 0.5;
+  pointer-events: none; /* 実際にクリックできなくする */
+}
