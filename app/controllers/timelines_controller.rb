@@ -19,6 +19,7 @@ class TimelinesController < ApplicationController
       redirect_to timelines_path, notice: '保存できました'
     else
       flash.now[:error] = '保存に失敗しました'
+      render :new
     end
   end
 
