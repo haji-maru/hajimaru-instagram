@@ -5,7 +5,7 @@
         %p cancel
     .head
       %p status
-    .post.images-input
+    .post#images-submit
       %p post
 
   %ul
@@ -24,8 +24,10 @@
       %div
         = f.text_field :content, class: 'text'
     .field
-      = f.label :images, '投稿画像'
+      = f.label :images, '+Album', id: 'images-open'
       %div
-        = f.file_field :images
+        = f.file_field :images, class: 'hidden', id: 'images-select'
     %div
-      = f.submit 'Submit', class: 'hidden'
+      = f.submit 'Submit', class: 'hidden', id: 'images-input'
+
+= javascript_pack_tag 'timeline'
