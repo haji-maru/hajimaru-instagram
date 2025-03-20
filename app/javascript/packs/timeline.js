@@ -7,11 +7,29 @@ const images_selection = () => {
   });
 
   $("#images-select").on("change", (event) => {
-    const fileInput = event.currentTarget; // イベントの対象要素を取得
-    if (fileInput.files && fileInput.files[0]) {
-      // サブミットボタンをクリック
-      $("#avatar-submit").click();
+    const fileInput = event.currentTarget;
+    const previewContainer = $(".timeline-preview");
+    previewContainer.empty(); // 既存のプレビューをクリア
+
+    const files = fileInput.files;
+    if (files.length > 0) {
+      $.each(files, function (_, file) {
+        if (file.type.startsWith("image/")) {
+          const reader = new FileReader();
+          reader.onload = (e) => {
+            $("<img>", {
+              src: e.target.result,
+              class: "preview-image",
+            }).appendTo(previewContainer);
+          };
+          reader.readAsDataURL(file);
+        }
+      });
     }
+  });
+
+  $("#images-submit").on("click", () => {
+    $("#images-input").click();
   });
 };
 
