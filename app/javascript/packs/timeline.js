@@ -11,9 +11,9 @@ const images_selection = () => {
   });
 
   // 画像の選択
-  $("#images-select").on("change", function () {
+  $("#images-select").on("change", (event) => {
     const previewContainer = $(".timeline-preview").empty(); // プレビューをクリア
-    Array.from(this.files).forEach((file) => {
+    Array.from(event.target.files).forEach((file) => {
       if (file.type.startsWith("image/")) {
         const reader = new FileReader();
         reader.onload = (e) =>
