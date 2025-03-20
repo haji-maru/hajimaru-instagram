@@ -26,8 +26,13 @@
     .field
       = f.label :images, '+ Album', class: 'images-select', id: 'images-open'
       %div
-        = f.file_field :images, class: 'hidden', id: 'images-select'
+        = f.file_field :images, class: 'hidden', id: 'images-select', multiple: true
     %div
       = f.submit 'Submit', class: 'hidden', id: 'images-input'
+
+  .timeline-preview
+    - if @timeline.images.attached?
+      - @timeline.images.each do |image|
+        = image_tag url_for(image), class: "preview-image"
 
 = javascript_pack_tag 'timeline'
