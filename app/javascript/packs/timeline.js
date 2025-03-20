@@ -11,26 +11,16 @@ const images_selection = () => {
   });
 
   // 画像の選択
-  $("#images-select").on("change", (event) => {
-    const fileInput = event.currentTarget;
-    const previewContainer = $(".timeline-preview");
-    previewContainer.empty(); // 既存のプレビューをクリア
-
-    const files = fileInput.files;
-    if (files.length > 0) {
-      $.each(files, function (_, file) {
-        if (file.type.startsWith("image/")) {
-          const reader = new FileReader();
-          reader.onload = (e) => {
-            $("<img>", {
-              src: e.target.result,
-              class: "preview-image",
-            }).appendTo(previewContainer);
-          };
-          reader.readAsDataURL(file);
-        }
-      });
-    }
+  $("#images-select").on("change", function () {
+    const previewContainer = $(".timeline-preview").empty(); // プレビューをクリア
+    Array.from(this.files).forEach((file) => {
+      if (file.type.startsWith("image/")) {
+        const reader = new FileReader();
+        reader.onload = (e) =>
+          $("<img>", { src: e.target.result, class: "preview-image" }).appendTo(previewContainer);
+        reader.readAsDataURL(file);
+      }
+    });
   });
 
   // 送信ボタンのクリック
