@@ -15,19 +15,18 @@
     .post-content
       .image-gallery
         .main-image
-          %img{src: "summer_portrait.jpg", alt: "Person with stylish earrings by pool"}
+          = image_tag 'image1.png'
         .side-images
-          %img{src: "beach_chairs_sunset.jpg", alt: "Beach chairs at sunset"}
-          %img{src: "overwater_bungalows.jpg", alt: "Overwater bungalows and swimming pool"}
+          = image_tag 'image2.png'
+          = image_tag 'image3.png'
 
     .post-actions
       .like-button
-        %i.icon-heart
-        %span 12,000
+        = image_tag 'like.png'
       .comment-button
-        %i.icon-comment
+        = image_tag 'comment.png'
       .share-button
-        %i.icon-share
+        = image_tag 'share.png'
 
     .post-comments
       .comment
