@@ -16,5 +16,8 @@
 class Timeline < ApplicationRecord
   belongs_to :user
 
+  validates :content, presence: true
+  validates :content, length: { minimum: 2, maximum: 100 }
+
   has_many_attached :images
 end
