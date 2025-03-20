@@ -2,10 +2,15 @@ import $ from "jquery";
 import axios from "modules/axios";
 
 const images_selection = () => {
+  // 送信ボタン最初は非アクティブ
+  $("#images-submit").prop("disabled", true).addClass("disabled");
+
+  // ファイル選択画面ボタン
   $("#images-open").on("click", () => {
     $("#images-select").click();
   });
 
+  // 画像の選択
   $("#images-select").on("change", (event) => {
     const fileInput = event.currentTarget;
     const previewContainer = $(".timeline-preview");
@@ -28,6 +33,7 @@ const images_selection = () => {
     }
   });
 
+  // 送信ボタンのクリック
   $("#images-submit").on("click", () => {
     $("#images-input").click();
   });
