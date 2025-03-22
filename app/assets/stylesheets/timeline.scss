@@ -1,3 +1,4 @@
+// index
 .timeline-create-icon {
   img {
     width: 20px;
@@ -7,6 +8,10 @@
 
 .timeline-post {
   margin-top: 40px;
+
+  & + & {
+    margin-top: 36px;
+  }
 }
 
 .timeline-post-header {
@@ -62,6 +67,46 @@
 }
 
 .share-button {
+}
+
+.timeline-images {
+  display: flex;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.main-image {
+  img {
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+    object-fit: cover; // 画像比率を保ちながら領域を埋める
+  }
+}
+
+.side-images {
+  img {
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+    object-fit: cover; // 画像比率を保ちながら領域を埋める
+  }
+}
+
+.post-actions {
+}
+
+.like-button {
+}
+
+.comment-button {
+}
+
+.share-button {
+}
+
+.post-comments {
+  margin-top: 10px;
 }
 
 // new
