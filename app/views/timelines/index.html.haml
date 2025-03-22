@@ -2,37 +2,36 @@
   = link_to new_timeline_path do
     .timeline-create-icon
       = image_tag 'photo-camera.png'
-  .timeline-post
-    .timeline-post-header
-      .timeline-avatar
-        = image_tag url_for(@profile.avatar)
-      .timeline-info
-        .timeline-username
-          %p= @user.username
-        .timeline-post-time
-          .time 3 hours ago
+  .timeline-posts
+    - @timelines.each do |timeline|
+      .timeline-post
+        .timeline-post-header
+          .timeline-avatar
+            = image_tag url_for(@profile.avatar)
+          .timeline-info
+            .timeline-username
+              %p= @user.username
+            .timeline-post-time
+              .time 3 hours ago
 
-    .post-content
-      .image-gallery
-        .main-image
-          = image_tag 'image1.png'
-        .side-images
-          = image_tag 'image2.png'
-          = image_tag 'image3.png'
+        .timeline-images
+          - if timeline.images.attached?
+            .main-image
+              = image_tag timeline.images.first
+            .side-images
+              - timeline.images.drop(1).each do |image|
+                = image_tag image
 
-    .post-actions
-      .like-button
-        = image_tag 'like.png'
-      .comment-button
-        = image_tag 'comment.png'
-      .share-button
-        = image_tag 'share.png'
+        .post-actions
+          .like-button
+            = image_tag 'like.png'
+          .comment-button
+            = image_tag 'comment.png'
+          .share-button
+            = image_tag 'share.png'
 
-    .post-comments
-      .comment
-        %strong Jasmine
-        and 12,000 other liked your post
+        .post-comments
+          %strong Jasmine
+          and 12,000 other liked your post
+          %p= "#{@user.username}  #{timeline.content}"
 
-      .caption
-        %strong Jmax_21
-        Summer holiday :3
