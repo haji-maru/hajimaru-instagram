@@ -1,5 +1,5 @@
 .container
-  = link_to new_timeline_path do
+  = link_to new_timeline_path, data: {"turbolinks" => false} do
     .timeline-create-icon
       = image_tag 'photo-camera.png'
   .timeline-posts
