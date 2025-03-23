@@ -1,12 +1,12 @@
 // index
-.timeline-create-icon {
+.post-create-icon {
   img {
     width: 20px;
     height: 20px;
   }
 }
 
-.timeline-post {
+.post-post {
   margin-top: 40px;
 
   & + & {
@@ -14,26 +14,26 @@
   }
 }
 
-.timeline-post-header {
+.post-post-header {
   display: flex;
   align-items: center;
   gap: 10px;
 }
 
-.timeline-avatar {
+.post-avatar {
   img {
     width: 30px;
     height: 30px;
   }
 }
 
-.timeline-info {
+.post-info {
 }
 
-.timeline-username {
+.post-username {
 }
 
-.timeline-post-time {
+.post-post-time {
 }
 
 .post-content {
@@ -69,7 +69,7 @@
 .share-button {
 }
 
-.timeline-images {
+.post-images {
   display: flex;
   gap: 8px;
   margin-top: 14px;
@@ -110,18 +110,18 @@
 }
 
 // new
-.timeline-create-header {
+.post-create-header {
   display: flex;
   justify-content: space-between;
 }
 
-.timeline-cancel {
+.post-cancel {
 }
 
-.timeline-head {
+.post-head {
 }
 
-.timeline-submit {
+.post-submit {
   cursor: pointer;
   img {
     width: 30px;
@@ -129,7 +129,7 @@
   }
 }
 
-.timeline-contributor {
+.post-contributor {
   margin-top: 40px;
   margin-bottom: 30px;
   display: flex;
@@ -137,14 +137,14 @@
   gap: 20px;
 }
 
-.timeline-avatar {
+.post-avatar {
   img {
     width: 40px;
     height: 40px;
   }
 }
 
-.timeline-username {
+.post-username {
 }
 
 .images-select {
@@ -154,7 +154,7 @@
   cursor: pointer;
 }
 
-.timeline-preview {
+.post-preview {
   margin-top: 20px;
 }
 

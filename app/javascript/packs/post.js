@@ -15,8 +15,7 @@ const setupImageSelector = () => {
 
 const checkFormStatus = () => {
   const hasContent = $("#content").val().trim().length > 0; // 入力があるか
-  const hasImages =
-    $("#images-select")[0].files.length > 0 || $(".timeline-preview img").length > 0;
+  const hasImages = $("#images-select")[0].files.length > 0 || $(".post-preview img").length > 0;
   // 画像が選択かプレビューに画像ありの場合
 
   if (hasContent && hasImages) {
@@ -29,7 +28,7 @@ const checkFormStatus = () => {
 const images_selection = () => {
   // 画像の選択
   $("#images-select").on("change", (event) => {
-    const previewContainer = $(".timeline-preview").empty(); // プレビューをクリア
+    const previewContainer = $(".post-preview").empty(); // プレビューをクリア
     Array.from(event.target.files).forEach((file) => {
       if (file.type.startsWith("image/")) {
         const reader = new FileReader();

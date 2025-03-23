@@ -1,1 +1,37 @@
-home
+.container
+  = link_to new_post_path, data: {"turbolinks" => false} do
+    .post-create-icon
+      = image_tag 'photo-camera.png'
+  .post-posts
+    - @posts.each do |post|
+      .post-post
+        .post-post-header
+          .post-avatar
+            = image_tag url_for(@profile.avatar)
+          .post-info
+            .post-username
+              %p= @user.username
+            .post-post-time
+              = "#{time_ago_in_words(post.created_at)}前"
+
+        .post-images
+          - if post.images.attached?
+            .main-image
+              = image_tag post.images.first
+            .side-images
+              - post.images.drop(1).each do |image|
+                = image_tag image
+
+        .post-actions
+          .like-button
+            = image_tag 'like.png'
+          .comment-button
+            = image_tag 'comment.png'
+          .share-button
+            = link_to "https://x.com/share?url=#{ request.url }&text=#{post.content}", target: '_blank' do
+              = image_tag 'share.png'
+
+        .post-comments
+          %strong Jasmine
+          and 12,000 other liked your post
+          %p= "#{@user.username}  #{post.content}"
