@@ -24,9 +24,13 @@
 
         .post-actions
           -if user_signed_in?
-            .like-button
-              = link_to post_like_path(post), data: { method: 'post' } do
-                = image_tag 'like.png'
+            - if current_user.has_liked?(post)
+              .like-button
+                = image_tag 'heart-active.svg'
+            - else
+              .like-button
+                = link_to post_like_path(post), data: { method: 'post' } do
+                  = image_tag 'heart.svg'
             .comment-button
               = image_tag 'comment.png'
             .share-button
