@@ -1,0 +1,38 @@
+.container
+  .timeline-create-header
+    .timeline-cancel
+      = link_to :back do
+        %p Cancel
+    .timeline-head
+      %p Status
+    .timeline-submit#images-submit
+      = image_tag 'post.png'
+
+  %ul
+    - @timeline.errors.full_messages.each do |message|
+      %li= message
+
+  .timeline-contributor
+    .timeline-avatar
+      = image_tag url_for(@profile.avatar)
+    .timeline-username
+      %p= @user.username
+
+  = form_with(model: @timeline, url: timelines_path, method: 'post', local: true) do |f|
+    .field
+      = f.label :content, '投稿内容', class: 'hidden'
+      %div
+        = f.text_field :content, class: 'text', id: 'content'
+    .field
+      = f.label :images, '+ Album', class: 'images-select', id: 'images-open'
+      %div
+        = f.file_field :images, class: 'hidden', id: 'images-select', multiple: true
+    %div
+      = f.submit 'Submit', class: 'hidden', id: 'images-input'
+
+  .timeline-preview
+    - if @timeline.images.attached?
+      - @timeline.images.each do |image|
+        = image_tag url_for(image), class: "preview-image"
+
+= javascript_pack_tag 'timeline'
