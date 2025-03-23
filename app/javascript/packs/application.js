@@ -14,3 +14,14 @@ require("channels");
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
+
+import $ from "jquery";
+import axios from "modules/axios";
+
+document.addEventListener("DOMContentLoaded", () => {
+  const dataset = $("#post-index").data();
+  const postId = dataset.postId;
+  axios.get(`/posts/${postId}/like`).then((response) => {
+    console.log(response);
+  });
+});
