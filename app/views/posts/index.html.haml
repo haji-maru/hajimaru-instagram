@@ -10,7 +10,7 @@
             = image_tag url_for(@profile.avatar)
           .post-info
             .post-username
-              %p= @user.username
+              %p= post.user.username
             .post-post-time
               = "#{time_ago_in_words(post.created_at)}前"
 
@@ -23,15 +23,17 @@
                 = image_tag image
 
         .post-actions
-          .like-button
-            = image_tag 'like.png'
-          .comment-button
-            = image_tag 'comment.png'
-          .share-button
-            = link_to "https://x.com/share?url=#{ request.url }&text=#{post.content}", target: '_blank' do
-              = image_tag 'share.png'
+          -if user_signed_in?
+            .like-button
+              = link_to post_like_path(post), data: { method: 'post' } do
+                = image_tag 'like.png'
+            .comment-button
+              = image_tag 'comment.png'
+            .share-button
+              = link_to "https://x.com/share?url=#{ request.url }&text=#{post.content}", target: '_blank' do
+                = image_tag 'share.png'
 
         .post-comments
           %strong Jasmine
           and 12,000 other liked your post
-          %p= "#{@user.username}  #{post.content}"
+          %p= "#{post.user.username}  #{post.content}"
