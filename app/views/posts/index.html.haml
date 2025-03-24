@@ -24,10 +24,10 @@
 
         .post-actions
           -if user_signed_in?
-            .like-button.hidden
+            .like-button.hidden.active-heart
               = link_to post_like_path(post), data: { method: 'delete' } do
                 = image_tag 'heart-active.svg'
-            .like-button.hidden
+            .like-button.hidden.inactive-heart
               = link_to post_like_path(post), data: { method: 'post' } do
                 = image_tag 'heart.svg'
             .comment-button
