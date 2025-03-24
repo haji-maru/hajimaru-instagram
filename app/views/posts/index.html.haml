@@ -1,10 +1,10 @@
-.container#post-index{data: {post_id: @posts.ids}}
+.container
   = link_to new_post_path, data: { turbolinks: false } do
     .post-create-icon
       = image_tag 'photo-camera.png'
   .post-posts
     - @posts.each do |post|
-      .post-post
+      .post-post#post-index{data: {post_id: post.id}}
         .post-post-header
           .post-avatar
             = image_tag url_for(@profile.avatar)
