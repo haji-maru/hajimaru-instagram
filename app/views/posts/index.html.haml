@@ -4,7 +4,7 @@
       = image_tag 'photo-camera.png'
   .post-posts
     - @posts.each do |post|
-      .post{data: {post_id: post.id}}
+      .post.post-index{data: {post_id: post.id}}
         .post-post-header
           .post-avatar
             = image_tag url_for(@profile.avatar)
