@@ -18,51 +18,56 @@ require("channels");
 import $ from "jquery";
 import axios from "modules/axios";
 
-const handleHeartDisplay = (hasLiked) => {
+const handleHeartDisplay = (post, hasLiked) => {
   if (hasLiked) {
-    $(".active-heart").removeClass("hidden");
+    post.find(".active-heart").removeClass("hidden");
   } else {
-    $(".inactive-heart").removeClass("hidden");
+    post.find(".inactive-heart").removeClass("hidden");
   }
 };
 
 document.addEventListener("DOMContentLoaded", () => {
-  const dataset = $("#post-index").data();
-  const postId = dataset.postId;
-  axios.get(`/posts/${postId}/like`).then((response) => {
-    const hasLiked = response.data.hasLiked;
-    handleHeartDisplay(hasLiked);
-  });
+  $(".post-index").each(function () {
+    const post = $(this); // 各投稿の要素
+    const postId = post.data("post-id"); // 投稿ごとの post_id を取得
 
-  $(".inactive-heart").on("click", () => {
-    axios
-      .post(`/posts/${postId}/like`)
-      .then((response) => {
-        if (response.data.status === "ok") {
-          $(".active-heart").removeClass("hidden");
-          $(".inactive-heart").addClass("hidden");
-        }
-      })
+    axios.get(`/posts/${postId}/like`).then((response) => {
+      const hasLiked = response.data.hasLiked;
+      handleHeartDisplay(post, hasLiked);
+    });
 
-      .catch((e) => {
-        window.alert("Error");
-        console.log(e);
-      });
-  });
+    // 「いいね」する処理
+    post.find(".inactive-heart").on("click", () => {
+      axios
+        .post(`/posts/${postId}/like`)
+        .then((response) => {
+          if (response.data.status === "ok") {
+            post.find(".active-heart").removeClass("hidden");
+            post.find(".inactive-heart").addClass("hidden");
+          }
+        })
 
-  $(".active-heart").on("click", () => {
-    axios
-      .delete(`/posts/${postId}/like`)
-      .then((response) => {
-        if (response.data.status === "ok") {
-          $(".active-heart").addClass("hidden");
-          $(".inactive-heart").removeClass("hidden");
-        }
-      })
+        .catch((e) => {
+          window.alert("Error");
+          console.log(e);
+        });
+    });
 
-      .catch((e) => {
-        window.alert("Error");
-        console.log(e);
-      });
+    // 「いいね」解除する処理
+    post.find(".active-heart").on("click", () => {
+      axios
+        .delete(`/posts/${postId}/like`)
+        .then((response) => {
+          if (response.data.status === "ok") {
+            post.find(".active-heart").addClass("hidden");
+            post.find(".inactive-heart").removeClass("hidden");
+          }
+        })
+
+        .catch((e) => {
+          window.alert("Error");
+          console.log(e);
+        });
+    });
   });
 });
