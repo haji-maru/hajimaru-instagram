@@ -37,3 +37,5 @@
         .post-comments
           %p.like-count= "いいね数 :  #{post.like_count}"
           %p= "#{post.user.username}  #{post.content}"
+
+= javascript_pack_tag 'like'
