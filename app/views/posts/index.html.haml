@@ -1,16 +1,16 @@
 .container
-  = link_to new_post_path, data: {"turbolinks" => false} do
+  = link_to new_post_path, data: { turbolinks: false } do
     .post-create-icon
       = image_tag 'photo-camera.png'
   .post-posts
     - @posts.each do |post|
-      .post-post
+      .post.post-index{data: {post_id: post.id}}
         .post-post-header
           .post-avatar
             = image_tag url_for(@profile.avatar)
           .post-info
             .post-username
-              %p= @user.username
+              %p= post.user.username
             .post-post-time
               = "#{time_ago_in_words(post.created_at)}前"
 
@@ -23,15 +23,19 @@
                 = image_tag image
 
         .post-actions
-          .like-button
-            = image_tag 'like.png'
-          .comment-button
-            = image_tag 'comment.png'
-          .share-button
-            = link_to "https://x.com/share?url=#{ request.url }&text=#{post.content}", target: '_blank' do
-              = image_tag 'share.png'
+          -if user_signed_in?
+            .like-button.hidden.active-heart{ data: { method: 'delete' } }
+              = image_tag 'heart-active.svg'
+            .like-button.hidden.inactive-heart{ data: { method: 'post' } }
+              = image_tag 'heart.svg'
+            .comment-button
+              = image_tag 'comment.png'
+            .share-button
+              = link_to "https://x.com/share?url=#{ request.url }&text=#{post.content}", target: '_blank' do
+                = image_tag 'share.png'
 
         .post-comments
-          %strong Jasmine
-          and 12,000 other liked your post
-          %p= "#{@user.username}  #{post.content}"
+          %p.like-count= "いいね数 :  #{post.like_count}"
+          %p= "#{post.user.username}  #{post.content}"
+
+= javascript_pack_tag 'like'
