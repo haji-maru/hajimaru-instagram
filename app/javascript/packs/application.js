@@ -44,6 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
           if (response.data.status === "ok") {
             post.find(".active-heart").removeClass("hidden");
             post.find(".inactive-heart").addClass("hidden");
+            post.find(".like-count").text(`いいね数 : ${response.data.like_count}`); // いいね数を更新
           }
         })
 
@@ -61,6 +62,7 @@ document.addEventListener("DOMContentLoaded", () => {
           if (response.data.status === "ok") {
             post.find(".active-heart").addClass("hidden");
             post.find(".inactive-heart").removeClass("hidden");
+            post.find(".like-count").text(`いいね数 : ${response.data.like_count}`); // いいね数を更新
           }
         })
 
