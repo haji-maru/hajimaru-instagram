@@ -35,5 +35,5 @@
                 = image_tag 'share.png'
 
         .post-comments
-          %p= "いいね数 :  #{post.like_count}"
+          %p.like-count= "いいね数 :  #{post.like_count}"
           %p= "#{post.user.username}  #{post.content}"
