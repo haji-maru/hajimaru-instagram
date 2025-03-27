@@ -13,4 +13,5 @@
 #  index_comments_on_post_id  (post_id)
 #
 class Comment < ApplicationRecord
+  belongs_to :post
 end
