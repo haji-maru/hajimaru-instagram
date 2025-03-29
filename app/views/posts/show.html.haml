@@ -15,8 +15,7 @@
         .post-comment-content
           .post-comment-username
             %p= @user.username
-          .post-comment
-            %p= comment.content
+          .post-comment.comment-container
 
   = link_to new_post_comment_path(@post) do
     .comment-submit
