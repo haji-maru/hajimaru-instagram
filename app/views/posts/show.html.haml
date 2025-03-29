@@ -9,8 +9,11 @@
 
   .post-comments
     - @comments.each do |comment|
-      .post-comment
-        %p= comment.content
+      .comment-box
+        .comment-avatar
+          = image_tag current_user.avatar_image
+        .post-comment
+          %p= comment.content
 
   = link_to new_post_comment_path(@post) do
     %p Comment Add
