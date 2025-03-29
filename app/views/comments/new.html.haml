@@ -1,6 +1,6 @@
 .container
   %ul
-    - @post.errors.full_messages.each do |message|
+    - @comment.errors.full_messages.each do |message|
       %li= message
 
   = form_with(model: @comment, url: post_comments_path(@comment.post), local: true) do |f|
