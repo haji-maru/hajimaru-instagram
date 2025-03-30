@@ -15,8 +15,11 @@
         .post-comment-content
           .post-comment-username
             %p= @user.username
-          .post-comment.comment-container
+          .post-show{ data: {post_id: @post.id} }
+            .comment-container
 
   = link_to new_post_comment_path(@post) do
     .comment-submit
       = image_tag 'comment.png'
+
+= javascript_pack_tag 'comment'
