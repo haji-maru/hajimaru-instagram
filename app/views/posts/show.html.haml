@@ -15,8 +15,8 @@
         .post-comment-content
           .post-comment-username
             %p= @user.username
-          .post-show{ data: {post_id: @post.id} }
-            .comment-container
+          .post-comment
+            %p= comment.content
 
   = link_to new_post_comment_path(@post) do
     .comment-submit
