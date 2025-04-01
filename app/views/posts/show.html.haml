@@ -18,8 +18,11 @@
           .post-comment
             %p= comment.content
 
-  = link_to new_post_comment_path(@post) do
-    .comment-submit
+    .comment-submit.show-comment-form
       = image_tag 'comment.png'
+    .comment-area.hidden
+      = text_area_tag :comment_content, '', class: 'sm, post-comment-area'
+      .comment-submit
+        = image_tag 'comment.png'
 
 = javascript_pack_tag 'comment'
