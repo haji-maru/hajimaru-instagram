@@ -11,10 +11,10 @@
     - @comments.each do |comment|
       .post-comment-box
         .post-comment-avatar
-          = image_tag current_user.avatar_image
+          = image_tag @post.user.avatar_image
         .post-comment-content
           .post-comment-username
-            %p= @user.username
+            %p= comment.user.username
           .post-comment
             %p= comment.content
 
