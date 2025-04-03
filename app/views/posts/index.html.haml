@@ -29,7 +29,7 @@
             .like-button.hidden.inactive-heart{ data: { method: 'post' } }
               = image_tag 'heart.svg'
             .comment-button
-              =link_to post_path(post) do
+              =link_to post_path(post), data: { turbolinks: false } do
                 = image_tag 'comment.png'
             .share-button
               = link_to "https://x.com/share?url=#{ request.url }&text=#{post.content}", target: '_blank' do
