@@ -7,16 +7,10 @@ document.addEventListener("DOMContentLoaded", () => {
     $(".comment-area").removeClass("hidden");
   });
 
-  $(".add-comment-button").on("click", () => {
-    const content = $("#comment_content").val();
+  const dataSet = $("#post-show").data();
+  const postId = dataSet.postId;
+
+  axios.get(`/posts/${postId}/comments`).then((response) => {
+    const comments = response.data;
   });
 });
-// const post = $(".post-show");
-// const postId = post.data("post-id"); // 投稿ごとの post_id を取得
-
-// axios.get(`/posts/${postId}/comments`).then((response) => {
-//   const comments = response.data;
-//   comments.forEach((comment) => {
-//     $(".comment-container").append(`<p>${comment.content}</p>`);
-//   });
-// });
