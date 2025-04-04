@@ -9,7 +9,7 @@
 
   .post-comments
     - @comments.each do |comment|
-      .post-comment-box
+      .post-comment-box.post-comment{data: {comment_id: comment.id}}
         .post-comment-avatar
           = image_tag comment.user.avatar_image
         .post-comment-content
