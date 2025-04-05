@@ -31,7 +31,9 @@ document.addEventListener("DOMContentLoaded", () => {
         .then((response) => {
           const comment = response.data;
           $(`.post-comment[data-comment-id="${comment.id}"]`).append(`<p>${comment.content}</p>`);
-        })
+        });
+      $("#comment_content")
+        .val("")
         .catch((error) => {
           console.log(error.response.data);
         });
