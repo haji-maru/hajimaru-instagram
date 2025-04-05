@@ -17,4 +17,21 @@ document.addEventListener("DOMContentLoaded", () => {
       $(`.post-comment[data-comment-id="${comment.id}"]`).append(`<p>${comment.content}</p>`);
     });
   });
+
+  $(".add-comment-button").on("click", () => {
+    const content = $("#comment_content").val();
+    // contentがなければ送信しない
+    if (!content) {
+      window.alert("コメントを入力してください");
+    } else {
+      axios
+        .post(`/posts/${postId}/comments`, {
+          comment: { content: content },
+        })
+        .then((response) => {
+          const comment = response.data;
+          $(`.post-comment[data-comment-id="${comment.id}"]`).append(`<p>${comment.content}</p>`);
+        });
+    }
+  });
 });
