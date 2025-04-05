@@ -8,14 +8,11 @@
       %p Comment
 
   .post-comments
-    - @comments.each do |comment|
-      .post-comment-box
-        .post-comment-avatar
-          = image_tag comment.user.avatar_image
-        .post-comment-content
-          .post-comment-username
-            %p= comment.user.username
-          .post-comment{data: {comment_id: comment.id}}
+    .post-comment-box
+      .post-comment-avatar
+      .post-comment-content
+        .post-comment-username
+        .post-comment
 
     .comment-submit.show-comment-form
       = image_tag 'comment.png'
