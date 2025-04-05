@@ -14,9 +14,22 @@ document.addEventListener("DOMContentLoaded", () => {
   axios.get(`/posts/${postId}/comments`).then((response) => {
     const comments = response.data;
     comments.forEach((comment) => {
-      $(`.post-comment-avatar`).append(`<img src="${comment.profile.avatar_path}">`);
-      $(`.post-comment-username`).append(`<p>${comment.user.username}</p>`);
-      $(`.post-comment`).append(`<p>${comment.content}</p>`);
+      const commentHtml = `
+      <div class="post-comment-box">
+        <div class="post-comment-avatar">
+          <img src="${comment.user.profile.avatar_path}" />
+        </div>
+        <div class="post-comment-content">
+          <div class="post-comment-username">
+            <p>${comment.user.username}</p>
+          </div>
+          <div class="post-comment">
+            <p>${comment.content}</p>
+          </div>
+        </div>
+      </div>
+    `;
+      $(".post-comments").append(commentHtml);
     });
   });
 
