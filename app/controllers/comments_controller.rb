@@ -4,7 +4,7 @@ class CommentsController < ApplicationController
     post = Post.find(params[:post_id])
     comments = post.comments
 
-    render json: comments
+    render json: comments, include: ['user.profile']
   end
 
   def new
