@@ -22,6 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
         <div class="post-comment-content">
           <div class="post-comment-username">
             <p>${comment.user.username}</p>
+            <img src="${comment.user.profile.avatar_path}" />
           </div>
           <div class="post-comment">
             <p>${comment.content}</p>
