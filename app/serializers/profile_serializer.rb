@@ -1,3 +1,3 @@
 class ProfileSerializer < ActiveModel::Serializer
-  attributes :id, :avatar
+  attributes :avatar_path
 end
