@@ -8,6 +8,13 @@ document.addEventListener("DOMContentLoaded", () => {
     $(".comment-area").removeClass("hidden");
   });
 
+  $(document).on("click", (e) => {
+    if (!$(e.target).closest(".comment-area, .show-comment-form").length) {
+      $(".comment-area").addClass("hidden");
+      $(".show-comment-form").removeClass("hidden");
+    }
+  });
+
   const dataSet = $("#post-show").data();
   const postId = dataSet.postId;
   // comment_idに紐づくコメントを表示
