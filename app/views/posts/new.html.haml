@@ -1,7 +1,7 @@
 .container
   .post-create-header
     .post-cancel
-      = link_to :back do
+      = link_to :back, data: { turbolinks: false } do
         %p Cancel
     .post-head
       %p Status

@@ -1,0 +1,24 @@
+.container#post-show{data: {post_id: @post.id}}
+  .post-comment-header
+    .back-button
+      = link_to :back, data: { turbolinks: false } do
+        = image_tag 'back-icon', class: 'header-back'
+
+    .post-comment-title
+      %p Comment
+
+  .post-comments
+    .post-comment-box
+      .post-comment-avatar
+      .post-comment-content
+        .post-comment-username
+        .post-comment
+
+    .comment-submit.show-comment-form
+      = image_tag 'comment.png'
+    .comment-area.hidden
+      = text_area_tag :comment_content, '', class: 'sm, post-comment-area'
+      .comment-submit.add-comment-button
+        = image_tag 'comment.png'
+
+= javascript_pack_tag 'comment'

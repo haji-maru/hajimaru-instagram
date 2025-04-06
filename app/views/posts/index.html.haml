@@ -7,7 +7,7 @@
       .post.post-index{data: {post_id: post.id}}
         .post-post-header
           .post-avatar
-            = image_tag url_for(@profile.avatar)
+            = image_tag post.user.avatar_image
           .post-info
             .post-username
               %p= post.user.username
@@ -29,7 +29,8 @@
             .like-button.hidden.inactive-heart{ data: { method: 'post' } }
               = image_tag 'heart.svg'
             .comment-button
-              = image_tag 'comment.png'
+              =link_to post_path(post), data: { turbolinks: false } do
+                = image_tag 'comment.png'
             .share-button
               = link_to "https://x.com/share?url=#{ request.url }&text=#{post.content}", target: '_blank' do
                 = image_tag 'share.png'

@@ -170,3 +170,86 @@
   opacity: 0.5;
   pointer-events: none; /* 実際にクリックできなくする */
 }
+
+// show
+
+.post-comment-header {
+  position: relative;
+}
+
+.back-button {
+}
+
+.post-comment-title {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.post-comments {
+  margin-bottom: 100px;
+}
+
+.post-comment-box {
+  display: flex;
+  gap: 14px;
+
+  & + & {
+    margin-top: 32px;
+  }
+}
+
+.post-comment-avatar {
+  img {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+.post-comment-content {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.post-comment-username {
+}
+
+.post-comment {
+  font-size: 14px;
+  color: #9b9b9b;
+}
+
+.comment-submit {
+  position: fixed;
+  bottom: 32px;
+  box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.15);
+  border: none;
+  width: calc(100% - 32px);
+  padding: 12px 0;
+  position: fixed;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  img {
+    padding-left: 22px;
+  }
+}
+
+.post-comment-area {
+  position: fixed;
+  box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.15);
+  bottom: px;
+  border: none;
+  width: calc(100% - 32px);
+  padding: 12px;
+  position: fixed;
+  bottom: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 0;
+  border-radius: 0;
+}
