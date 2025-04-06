@@ -27,4 +27,12 @@ class CommentsController < ApplicationController
     params.require(:comment).permit(:content)
   end
 
+  def check_mentions
+    mentioned_usernames = @comment.content.scan(/@(\w+)/).flatten
+    mentioned_users = User.where(username: mentioned_usernames)
+    mentioned_users.each do |mention_user|
+      CommentMentionMailer.account_name_mention(mention_user, @comment.user, @comment).deliver_later
+    end
+  end
+
 end
