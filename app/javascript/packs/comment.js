@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
     $(".comment-area").removeClass("hidden");
   });
 
+  // コメントエリア外をクリックすると閉じれるように
   $(document).on("click", (e) => {
     if (!$(e.target).closest(".comment-area, .show-comment-form").length) {
       $(".comment-area").addClass("hidden");
@@ -15,6 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
+  // コメント一覧の表示
   const dataSet = $("#post-show").data();
   const postId = dataSet.postId;
   // comment_idに紐づくコメントを表示
@@ -40,6 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+  // コメントの投稿
   $(".add-comment-button").on("click", () => {
     const content = $("#comment_content").val();
     // contentがなければ送信しない
