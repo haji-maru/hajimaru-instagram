@@ -15,21 +15,20 @@ document.addEventListener("DOMContentLoaded", () => {
     const comments = response.data;
     comments.forEach((comment) => {
       const commentHtml = `
-      <div class="post-comment-box">
-        <div class="post-comment-avatar">
-          <img src="${comment.user.profile.avatar_path}" />
-        </div>
-        <div class="post-comment-content">
-          <div class="post-comment-username">
-            <p>${comment.user.username}</p>
+        <div class="post-comment-box">
+          <div class="post-comment-avatar">
             <img src="${comment.user.profile.avatar_path}" />
           </div>
-          <div class="post-comment">
-            <p>${comment.content}</p>
+          <div class="post-comment-content">
+            <div class="post-comment-username">
+              <p>${comment.user.username}</p>
+            </div>
+            <div class="post-comment">
+              <p>${comment.content}</p>
+            </div>
           </div>
         </div>
-      </div>
-    `;
+      `;
       $(".post-comments").append(commentHtml);
     });
   });
@@ -46,13 +45,25 @@ document.addEventListener("DOMContentLoaded", () => {
         })
         .then((response) => {
           const comment = response.data;
-          $(`.post-comment[data-comment-id="${comment.id}"]`).append(`<p>${comment.content}</p>`);
+          const commentHtml = `
+            <div class="post-comment-box">
+              <div class="post-comment-avatar">
+                <img src="${comment.user.profile.avatar_path}" />
+              </div>
+              <div class="post-comment-content">
+                <div class="post-comment-username">
+                  <p>${comment.user.username}</p>
+                </div>
+                <div class="post-comment">
+                  <p>${comment.content}</p>
+                </div>
+              </div>
+            </div>
+          `;
+
+          $(".post-comments").append(commentHtml);
         });
-      $("#comment_content")
-        .val("")
-        .catch((error) => {
-          console.log(error.response.data);
-        });
+      $("#comment_content").val("");
     }
   });
 });
