@@ -34,7 +34,7 @@ class CommentsController < ApplicationController
     mentioned_users = User.where(username: mentioned_usernames)
     # 通知メールの送信
     mentioned_users.each do |mention_user|
-      CommentMentionMailer.account_name_mention(mention_user, @comment.user, @comment).deliver_later
+      CommentMentionMailer.account_name_mention(mention_user, @comment).deliver_later
     end
   end
 
