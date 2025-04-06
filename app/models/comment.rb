@@ -15,6 +15,8 @@
 #  index_comments_on_user_id  (user_id)
 #
 class Comment < ApplicationRecord
+  after_create :check_mentions
+
   belongs_to :post
   belongs_to :user
 
