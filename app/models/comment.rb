@@ -26,7 +26,7 @@ class Comment < ApplicationRecord
 
   def check_mentions
     # メンションされたユーザーの検出
-    mentioned_usernames = @comment.content.scan(/@(\w+)/).flatten
+    mentioned_usernames = self.content.scan(/@(\w+)/).flatten
     # メンションされたユーザーの取得
     mentioned_users = User.where(username: mentioned_usernames)
     # 通知メールの送信
