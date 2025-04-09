@@ -37,14 +37,17 @@ class User < ApplicationRecord
 
   has_many :followings, through: :following_relationships, source: :following
 
+  # プロフィールが存在すればそれを返し、なければ新しく作成する
   def prepare_profile
     profile || build_profile
   end
 
+  # 「いいね」しているかを判定する
   def has_liked?(post)
     likes.exists?(post_id: post.id)
   end
 
+  # ユーザーのアバター画像がなければデフォルトを使用
   def avatar_image
     if profile&.avatar&.attached?
       profile.avatar
