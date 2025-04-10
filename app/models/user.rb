@@ -55,4 +55,9 @@ class User < ApplicationRecord
       'default-avatar.png'
     end
   end
+
+  # フォローする
+  def follow!(user)
+    following_relationships.create!(following_id: user.id)
+  end
 end
