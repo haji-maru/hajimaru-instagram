@@ -7,9 +7,6 @@
     .profile-username
       %p= @user.username
 
-    .profile-follow
-      = link_to 'Follow', '#'
-
   .profile-avatar
     - if @profile.avatar.attached?
       = image_tag url_for(@profile.avatar), class: 'avatar-icon', id: 'avatar-preview'
