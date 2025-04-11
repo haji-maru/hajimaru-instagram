@@ -1,17 +1,14 @@
 class ProfilesController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_profile, only: [:show, :edit, :update]
 
   def show
-    @user = current_user
-    @profile = current_user.prepare_profile
   end
 
   def edit
-    @profile = current_user.prepare_profile
   end
 
   def update
-    @profile = current_user.prepare_profile
     @profile.assign_attributes(profile_params)
     if @profile.save
       redirect_to profile_path, notice: '更新できました'
@@ -22,6 +19,10 @@ class ProfilesController < ApplicationController
   end
 
   private
+
+  def set_profile
+    @profile = current_user.prepare_profile
+  end
 
   def profile_params
     params.require(:profile).permit(:avatar)
