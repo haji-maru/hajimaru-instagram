@@ -1,31 +1,3 @@
-.container
-  .profile-header
-    .back-button
-      = link_to :back do
-        = image_tag 'back-icon', class: 'header-back'
-
-    .profile-username
-      %p= current_user.username
-
-  .profile-avatar
-    - if @profile.avatar.attached?
-      = image_tag url_for(@profile.avatar), class: 'avatar-icon', id: 'avatar-preview'
-    - else
-      = image_tag 'default-avatar.png', class: 'avatar-icon', id: 'avatar-preview'
-
-    = form_with(model: @profile, url: profile_path, method: 'put', local: true) do |f|
-      = f.file_field :avatar, class: 'hidden', id: 'avatar-input'
-      = f.submit :avatar, class: 'hidden', id: 'avatar-submit'
-
-  .profile-info
-    .my-posts
-      %p.count 44
-      %p.content Posts
-    .my-followers
-      %p.count 110
-      %p.content Followers
-    .my-followings
-      %p.count 44
-      %p.content Following
+= render 'commons/profile', user: current_user
 
 = javascript_pack_tag 'profile'
