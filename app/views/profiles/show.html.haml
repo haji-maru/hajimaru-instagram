@@ -5,7 +5,7 @@
         = image_tag 'back-icon', class: 'header-back'
 
     .profile-username
-      %p= @user.username
+      %p= current_user.username
 
   .profile-avatar
     - if @profile.avatar.attached?
