@@ -75,7 +75,13 @@ class User < ApplicationRecord
 
   # フォローを外す
   def unfollow!(user)
-    relation = following_relationships.find_by!(following_id: user.id)
+    if user.is_a?(User)   # Userオブジェクトなら
+      user_id = user.id   # idを取り出す
+    else                  # そうでない（数値なら）
+      user_id = user      # そのままIDとして使う
+    end
+
+    relation = following_relationships.find_by!(following_id: user_id)
     relation.destroy!
   end
 
