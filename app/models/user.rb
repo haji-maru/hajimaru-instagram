@@ -78,4 +78,9 @@ class User < ApplicationRecord
     relation = following_relationships.find_by!(following_id: user.id)
     relation.destroy!
   end
+
+  # フォローしているかしていなしか判定
+  def has_followed?(user)
+    following_relationships.exists?(following_id: user.id)
+  end
 end
