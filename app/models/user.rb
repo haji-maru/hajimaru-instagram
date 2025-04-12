@@ -64,7 +64,13 @@ class User < ApplicationRecord
 
   # フォローする
   def follow!(user)
-    following_relationships.create!(following_id: user.id)
+    if user.is_a?(User)   # Userオブジェクトなら
+      user_id = user.id   # idを取り出す
+    else                  # そうでない（数値なら）
+      user_id = user      # そのままIDとして使う
+    end
+
+    following_relationships.create!(following_id: user_id)
   end
 
   # フォローを外す
