@@ -64,22 +64,14 @@ class User < ApplicationRecord
 
   # フォローする
   def follow!(user)
-    if user.is_a?(User)   # Userオブジェクトなら
-      user_id = user.id   # idを取り出す
-    else                  # そうでない（数値なら）
-      user_id = user      # そのままIDとして使う
-    end
+    user_id = get_user_id(user)
 
     following_relationships.create!(following_id: user_id)
   end
 
   # フォローを外す
   def unfollow!(user)
-    if user.is_a?(User)   # Userオブジェクトなら
-      user_id = user.id   # idを取り出す
-    else                  # そうでない（数値なら）
-      user_id = user      # そのままIDとして使う
-    end
+    user_id = get_user_id(user)
 
     relation = following_relationships.find_by!(following_id: user_id)
     relation.destroy!
@@ -88,5 +80,15 @@ class User < ApplicationRecord
   # フォローしているかしていなしか判定
   def has_followed?(user)
     following_relationships.exists?(following_id: user.id)
+  end
+
+  private
+
+  def get_user_id(user)
+    if user.is_a?(User)   # Userオブジェクトなら
+      user.id             # idを取り出す
+    else                  # そうでない（数値なら）
+      user                # そのままIDとして使う
+    end
   end
 end
