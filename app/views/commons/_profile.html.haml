@@ -31,8 +31,8 @@
       %p.count 44
       %p.content Posts
     .my-followers
-      %p.count 110
+      %p.count.follower-count= user.follower_count
       %p.content Followers
     .my-followings
-      %p.count 44
+      %p.count.following-count= user.following_count
       %p.content Following
