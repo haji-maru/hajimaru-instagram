@@ -11,7 +11,7 @@ class ProfilesController < ApplicationController
   def update
     @profile.assign_attributes(profile_params)
     if @profile.save
-      redirect_to profile_path, notice: '更新できました'
+      render json: { status: 'ok', message: '更新できました', avatar_url: url_for(@profile.avatar) }
     else
       flash.now[:error] = '更新できませんでした'
       render :edit
