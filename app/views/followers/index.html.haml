@@ -1,0 +1,10 @@
+.container
+  .post-comment-header
+    .back-button
+      = link_to :back, data: { turbolinks: false } do
+        = image_tag 'back-icon', class: 'header-back'
+
+    .post-comment-title
+      %p Followers
+
+
