@@ -13,7 +13,7 @@ Rails.application.routes.draw do
 
   resources :accounts, only: [:show] do
     resource :follow, only: [:show, :create]
-    resource :unfollow, only: [:show, :create]
+    resource :unfollow, only: [:create]
   end
 
   resources :posts do
