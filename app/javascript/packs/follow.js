@@ -27,6 +27,10 @@ document.addEventListener("DOMContentLoaded", () => {
         if (response.data.status === "ok") {
           $(".profile-follow").removeClass("hidden");
           $(".profile-unfollow").addClass("hidden");
+
+          // フォロワーとフォローをカウント
+          $(".follower-count").text(response.data.follower_count);
+          $(".following-count").text(response.data.following_count);
         }
       })
       .catch((e) => {
@@ -43,6 +47,10 @@ document.addEventListener("DOMContentLoaded", () => {
         if (response.data.status === "ok") {
           $(".profile-unfollow").removeClass("hidden");
           $(".profile-follow").addClass("hidden");
+
+          // フォロワーとフォローをカウント
+          $(".follower-count").text(response.data.follower_count);
+          $(".following-count").text(response.data.following_count);
         }
       })
       .catch((e) => {
