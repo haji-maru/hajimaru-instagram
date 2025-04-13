@@ -11,9 +11,9 @@
       - if user == current_user
         = link_to 'Edit', edit_profile_path
       - else
-        - if current_user&.has_followed?(user)
+        .profile-follow.hidden
           = link_to 'Unfollow', account_unfollow_path(user), data: { method: 'post' }
-        - else
+        .profile-unfollow.hidden
           = link_to 'Follow', account_follow_path(user), data: { method: 'post' }
 
   .profile-avatar
