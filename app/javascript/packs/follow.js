@@ -6,6 +6,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const accountId = dataSet.accountId;
 
   axios.get(`/accounts/${accountId}/follow`).then((response) => {
-    console.log(response);
+    const hasFollowed = response.data.hasFollowed; // ステータス取得
+    if (hasFollowed) {
+      $(".profile-follow").removeClass("hidden");
+    } else {
+      $(".profile-unfollow").removeClass("hidden");
+    }
   });
 });
