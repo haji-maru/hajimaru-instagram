@@ -7,4 +7,11 @@
     .follow-title
       %p Followings
 
-    
+  .follows
+    - @followings.each do |following|
+      .follow-person
+        .follow-avatar
+          = link_to account_path(following), data: { turbolinks: false } do
+            = image_tag following.avatar_image
+        .follow-username
+          %p= following.username
