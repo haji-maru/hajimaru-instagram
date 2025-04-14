@@ -30,11 +30,11 @@
     .my-posts
       %p.count 44
       %p.content Posts
-    = link_to account_followers_path(@user), data: { turbolinks: false } do
+    = link_to account_follower_path(user), data: { turbolinks: false } do
       .my-followers
         %p.count.follower-count= user.follower_count
         %p.content Followers
-    = link_to account_followings_path(@user), data: { turbolinks: false } do
+    = link_to account_following_path(user), data: { turbolinks: false } do
       .my-followings
         %p.count.following-count= user.following_count
         %p.content Following
