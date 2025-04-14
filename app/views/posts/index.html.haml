@@ -7,7 +7,7 @@
       .post.post-index{data: {post_id: post.id}}
         .post-post-header
           .post-avatar
-            = link_to account_path(post.user) do
+            = link_to account_path(post.user), data: { turbolinks: false } do
               = image_tag post.user.avatar_image
           .post-info
             .post-username
