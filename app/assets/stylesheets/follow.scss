@@ -1,0 +1,11 @@
+.follow-header {
+  position: relative;
+}
+
+.follow-title {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
