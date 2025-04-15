@@ -1,0 +1,40 @@
+.container
+  .profile-header
+    .back-button
+      = link_to :back do
+        = image_tag 'back-icon', class: 'header-back'
+
+    .profile-username
+      %p= user.username
+
+    .profile-action-button
+      - if user == current_user
+        = link_to 'Edit', edit_profile_path
+      - else
+        .profile-follow.hidden
+          %p Unfollow
+        .profile-unfollow.hidden
+          %p Follow
+
+  .profile-avatar
+    - if @profile.avatar.attached?
+      = image_tag url_for(@profile.avatar), class: 'avatar-icon', id: 'avatar-preview'
+    - else
+      = image_tag 'default-avatar.png', class: 'avatar-icon', id: 'avatar-preview'
+
+    = form_with(model: @profile, url: profile_path, method: 'put', local: true) do |f|
+      = f.file_field :avatar, class: 'hidden', id: 'avatar-input'
+      = f.submit :avatar, class: 'hidden', id: 'avatar-submit'
+
+  .profile-info
+    .my-posts
+      %p.count 44
+      %p.content Posts
+    = link_to account_followers_path(@user), data: { turbolinks: false } do
+      .my-followers
+        %p.count.follower-count= user.follower_count
+        %p.content Followers
+    = link_to account_followings_path(@user), data: { turbolinks: false } do
+      .my-followings
+        %p.count.following-count= user.following_count
+        %p.content Following
