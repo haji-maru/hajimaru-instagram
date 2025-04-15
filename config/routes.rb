@@ -9,6 +9,8 @@ Rails.application.routes.draw do
 
   root to: 'posts#index'
 
+  resource :timeline, only: [:show]
+
   resource :profile, only: [:show, :edit, :update]
 
   resources :accounts, only: [:show] do
