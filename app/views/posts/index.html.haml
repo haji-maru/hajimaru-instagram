@@ -2,6 +2,9 @@
   = link_to new_post_path, data: { turbolinks: false } do
     .post-create-icon
       = image_tag 'photo-camera.png'
+
+  = render 'posts/tabs'
+
   .post-posts
     - @posts.each do |post|
       .post.post-index{data: {post_id: post.id}}
