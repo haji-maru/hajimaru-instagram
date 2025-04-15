@@ -1,20 +1,17 @@
 class ProfilesController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_profile, only: [:show, :edit, :update]
 
   def show
-    @user = current_user
-    @profile = current_user.prepare_profile
   end
 
   def edit
-    @profile = current_user.prepare_profile
   end
 
   def update
-    @profile = current_user.prepare_profile
     @profile.assign_attributes(profile_params)
     if @profile.save
-      redirect_to profile_path, notice: '更新できました'
+      render json: { status: 'ok', message: '更新できました', avatar_url: url_for(@profile.avatar) }
     else
       flash.now[:error] = '更新できませんでした'
       render :edit
@@ -22,6 +19,10 @@ class ProfilesController < ApplicationController
   end
 
   private
+
+  def set_profile
+    @profile = current_user.prepare_profile
+  end
 
   def profile_params
     params.require(:profile).permit(:avatar)

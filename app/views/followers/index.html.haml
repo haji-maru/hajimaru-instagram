@@ -1,0 +1,17 @@
+.container
+  .follow-header
+    .back-button
+      = link_to :back, data: { turbolinks: false } do
+        = image_tag 'back-icon', class: 'header-back'
+
+    .follow-title
+      %p Followers
+
+  .follows
+    - @followers.each do |follower|
+      .follow-person
+        .follow-avatar
+          = link_to account_path(follower), data: { turbolinks: false } do
+            = image_tag follower.avatar_image
+        .follow-username
+          %p= follower.username
