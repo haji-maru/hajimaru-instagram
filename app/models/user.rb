@@ -53,15 +53,6 @@ class User < ApplicationRecord
     likes.exists?(post_id: post.id)
   end
 
-  # ユーザーのアバター画像がなければデフォルトを使用
-  def avatar_image
-    if profile&.avatar&.attached?
-      profile.avatar
-    else
-      'default-avatar.png'
-    end
-  end
-
   # フォローする
   def follow!(user)
     user_id = get_user_id(user)
