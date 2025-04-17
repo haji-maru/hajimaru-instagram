@@ -1,0 +1,47 @@
+@import "variables";
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropbtn {
+  border: none;
+  width: 30px;
+  height: 30px;
+
+  &.--icon {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+.dropdown-content {
+  font-weight: normal;
+  display: none;
+  right: 0;
+  position: absolute;
+  background-color: white;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  border-radius: 10px;
+  padding: 10px 0 10px;
+
+  a {
+    padding: 8px 16px;
+    display: block;
+  }
+
+  &.mini {
+    min-width: 100px;
+  }
+}
+
+.dropdown-content a:hover {
+  background-color: lightgrey;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
