@@ -3,7 +3,12 @@ class TimelinesController < ApplicationController
 
   def show
     user_ids = current_user.followings.pluck(:id)
-    time = (Time.zone.now - time) < 24.hours
-    @posts = Post.joins(:likes).group(user_ids).order(time).limit(5)
+    @posts = Post
+    .where(user_id: user_ids) # フォローしているユーザーの投稿取得
+    .where('posts.created_at >= ?', 24.hours.ago) # 24時間以内に作られた投稿
+    .left_joins(:likes) # いいねされてない投稿も含む joins(:likes) いいねされてる投稿のみ
+    .group('posts.id') # post.idをグループ化
+    .order('COUNT(likes.id) DESC') # いいね数が多い順に並べる
+    .limit(5) # 上位5件を取得
   end
 end
