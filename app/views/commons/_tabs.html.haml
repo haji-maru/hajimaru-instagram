@@ -1,0 +1,5 @@
+.tabs
+  .tabs-item{class: "#{add_active_class(root_path)}"}
+    = link_to 'All Post', root_path, data: { turbolinks: false }
+  .tabs-item{class: "#{add_active_class(timeline_path)}"}
+    = link_to 'Timeline', timeline_path, data: { turbolinks: false }
