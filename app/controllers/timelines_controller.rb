@@ -3,6 +3,7 @@ class TimelinesController < ApplicationController
 
   def show
     user_ids = current_user.followings.pluck(:id)
-    @posts = Post.where(user_id: user_ids)
+    time = (Time.zone.now - time) < 24.hours
+    @posts = Post.joins(:likes).group(user_ids).order(time).limit(5)
   end
 end
