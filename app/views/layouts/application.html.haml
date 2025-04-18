@@ -21,7 +21,7 @@
           = link_to new_post_path, data: { turbolinks: false } do
             .post-create-icon
               = image_tag 'photo-camera.png'
-      = link_to 'HajimaruGram', posts_path, class: 'header-title'
+      = link_to 'HajimaruGram', posts_path, data: { turbolinks: false }, class: 'header-title'
       - if user_signed_in?
         .dropdown
           = image_tag current_user.avatar_image, class: 'header-avatar dropbtn --icon'
