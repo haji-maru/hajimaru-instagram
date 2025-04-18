@@ -17,6 +17,10 @@
         - unless [root_path, posts_path].include?(request.path)
           = link_to :back do
             = image_tag 'back-icon.png', class: 'header-back'
+        - else
+          = link_to new_post_path, data: { turbolinks: false } do
+            .post-create-icon
+              = image_tag 'photo-camera.png'
       = link_to 'HajimaruGram', posts_path, class: 'header-title'
       - if user_signed_in?
         .dropdown
