@@ -15,6 +15,9 @@ $avatar-size: 40px;
   color: $text-base-color;
   line-height: $avatar-size;
   font-size: 18px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .header-logos {
