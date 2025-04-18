@@ -107,12 +107,17 @@
 .post-create-header {
   display: flex;
   justify-content: space-between;
+  position: relative;
 }
 
 .post-cancel {
 }
 
 .post-head {
+  position: absolute;
+  content: "";
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .post-submit {
