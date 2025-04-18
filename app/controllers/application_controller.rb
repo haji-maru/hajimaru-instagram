@@ -1,6 +1,11 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
 
+  def current_user
+    ActiveDecorator::Decorator.instance.decorate(super) if super.present?
+    super
+  end
+
   # usernameの登録・更新を許可とする記載
   protected
 
