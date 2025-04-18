@@ -1,34 +1,26 @@
 .profile-header {
-  display: flex;
   position: relative;
   width: 100%;
   align-items: center;
 }
 
-.back-button {
-  margin-right: auto;
-
-  img {
-    width: 17px;
-    height: 12px;
-  }
-}
-
 .profile-username {
   position: absolute;
+  content: "";
   left: 50%;
   transform: translateX(-50%);
-  text-align: center;
   font-size: 18px;
 }
 
 .profile-action-button {
+  position: absolute;
+  right: 0;
   cursor: pointer;
 }
 
 .profile-avatar {
   text-align: center;
-  margin-top: 32px;
+  margin-top: 64px;
 
   img {
     width: 84px;
@@ -39,18 +31,23 @@
 
 .profile-info {
   display: flex;
-  justify-content: center;
   margin-top: 43px;
-  gap: 40px;
+  gap: 20px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .my-posts {
+  width: 70px;
 }
 
 .my-followers {
+  width: 70px;
 }
 
 .my-followings {
+  width: 70px;
 }
 
 .count {
