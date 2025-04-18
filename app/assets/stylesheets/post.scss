@@ -187,17 +187,14 @@
   transform: translateX(-50%);
 }
 
-.post-comments {
+.post-comment-comments {
   margin-bottom: 100px;
 }
 
 .post-comment-box {
   display: flex;
   gap: 14px;
-
-  & + & {
-    margin-top: 32px;
-  }
+  margin-top: 32px;
 }
 
 .post-comment-avatar {

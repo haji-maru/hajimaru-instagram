@@ -1,13 +1,10 @@
 .container#post-show{data: {post_id: @post.id}}
   .post-comment-header
-    .back-button
-      = link_to :back, data: { turbolinks: false } do
-        = image_tag 'back-icon', class: 'header-back'
 
     .post-comment-title
       %p Comment
 
-  .post-comments
+  .post-comment-comments
     .post-comment-box
       .post-comment-avatar
       .post-comment-content
