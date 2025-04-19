@@ -6,6 +6,8 @@
 @import "post";
 @import "follow";
 @import "tabs";
+@import "header";
+@import "dropdown";
 
 html {
   word-spacing: 1px;
@@ -41,9 +43,16 @@ a {
 
 .container {
   width: 100%;
-  padding: 16px;
+  padding: 20px;
 }
 
 .hidden {
   display: none;
+}
+
+.post-create-icon {
+  img {
+    width: 20px;
+    height: 20px;
+  }
 }

@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
           </div>
         </div>
       `;
-      $(".post-comments").append(commentHtml);
+      $(".post-comment-comments").append(commentHtml);
     });
   });
 
@@ -71,7 +71,7 @@ document.addEventListener("DOMContentLoaded", () => {
             </div>
           `;
 
-          $(".post-comments").append(commentHtml);
+          $(".post-comment-comments").append(commentHtml);
         });
       $("#comment_content").val("");
     }
