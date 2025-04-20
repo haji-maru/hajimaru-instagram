@@ -35,7 +35,7 @@
         %p.count.following-count= user.following_count
         %p.content Following
 
-  .my-post-list
+  .profile-my-post-list
     - user.posts.each do |post|
       .post.post-index{data: {post_id: post.id}}
         .post-post-header
