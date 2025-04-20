@@ -24,7 +24,7 @@
 
   .profile-info
     .my-posts
-      %p.count 44
+      %p.count=user.post_count
       %p.content Posts
     = link_to account_follower_path(user), data: { turbolinks: false } do
       .my-followers
