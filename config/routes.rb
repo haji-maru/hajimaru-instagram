@@ -14,9 +14,6 @@ Rails.application.routes.draw do
   resource :profile, only: [:show, :edit, :update]
 
   resources :accounts, only: [:show] do
-    resource :follow, only: [:show, :create]
-    resource :unfollow, only: [:create]
-
     resource :following, only: [:show]
     resource :follower, only: [:show]
   end
@@ -27,6 +24,11 @@ Rails.application.routes.draw do
     scope '/posts/:post_id' do
       resource :like, only: [:show, :create, :destroy]
       resources :comments, only: [:index, :create]
+    end
+
+    scope '/account/:account_id' do
+      resource :follow, only: [:show, :create]
+      resource :unfollow, only: [:create]
     end
   end
 end
