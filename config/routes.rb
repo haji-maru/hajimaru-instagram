@@ -9,16 +9,17 @@ Rails.application.routes.draw do
 
   root to: 'posts#index'
 
-  resource :timeline, only: [:show]
-
-  resource :profile, only: [:show, :edit, :update]
+  resources :posts
 
   resources :accounts, only: [:show] do
     resource :following, only: [:show]
     resource :follower, only: [:show]
   end
 
-  resources :posts
+  scope module: :apps do
+    resource :timeline, only: [:show]
+    resource :profile, only: [:show, :edit, :update]
+  end
 
   namespace :api, defaults: { format: :json } do
     scope '/posts/:post_id' do
