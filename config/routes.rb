@@ -21,9 +21,12 @@ Rails.application.routes.draw do
     resource :follower, only: [:show]
   end
 
-  resources :posts do
-    resource :like, only: [:show, :create, :destroy]
+  resources :posts
 
-    resources :comments, only: [:index, :create]
+  namespace :api, defaults: { format: :json } do
+    scope '/posts/:post_id' do
+      resource :like, only: [:show, :create, :destroy]
+      resources :comments, only: [:index, :create]
+    end
   end
 end
