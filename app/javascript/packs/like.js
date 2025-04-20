@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const post = $(this); // 各投稿の要素
     const postId = post.data("post-id"); // 投稿ごとの post_id を取得
 
-    axios.get(`/posts/${postId}/like`).then((response) => {
+    axios.get(`/api/posts/${postId}/like`).then((response) => {
       const hasLiked = response.data.hasLiked;
       handleHeartDisplay(post, hasLiked);
     });
@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // 「いいね」する処理
     post.find(".inactive-heart").on("click", () => {
       axios
-        .post(`/posts/${postId}/like`)
+        .post(`/api/posts/${postId}/like`)
         .then((response) => {
           if (response.data.status === "ok") {
             post.find(".active-heart").removeClass("hidden");
@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // 「いいね」解除する処理
     post.find(".active-heart").on("click", () => {
       axios
-        .delete(`/posts/${postId}/like`)
+        .delete(`/api/posts/${postId}/like`)
         .then((response) => {
           if (response.data.status === "ok") {
             post.find(".active-heart").addClass("hidden");
