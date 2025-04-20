@@ -1,6 +1,11 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
 
+  # ログイン後の遷移先を指定
+  def after_sign_in_path_for(resource_or_scope)
+    posts_path
+  end
+
   def current_user
     ActiveDecorator::Decorator.instance.decorate(super) if super.present?
     super
