@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const dataSet = $("#post-show").data();
   const postId = dataSet.postId;
   // comment_idに紐づくコメントを表示
-  axios.get(`/posts/${postId}/comments`).then((response) => {
+  axios.get(`/api/posts/${postId}/comments`).then((response) => {
     const comments = response.data;
     comments.forEach((comment) => {
       const commentHtml = `
@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
       window.alert("コメントを入力してください");
     } else {
       axios
-        .post(`/posts/${postId}/comments`, {
+        .post(`/api/posts/${postId}/comments`, {
           comment: { content: content },
         })
         .then((response) => {
