@@ -20,7 +20,7 @@
             .post-create-icon
               = image_tag 'photo-camera.png'
         - else
-          = link_to :back do
+          = link_to :back, data: { turbolinks: false } do
             = image_tag 'back-icon.png', class: 'header-back'
       = link_to 'HajimaruGram', posts_path, data: { turbolinks: false }, class: 'header-title'
       - if user_signed_in?
