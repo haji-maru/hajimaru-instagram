@@ -36,6 +36,5 @@ class PostsController < ApplicationController
 
   def set_post
     @profile = current_user.prepare_profile
-    @user = current_user
   end
 end
