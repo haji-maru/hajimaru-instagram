@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const accountId = dataSet.accountId;
 
   // 初期表示のステータスを取得
-  axios.get(`/accounts/${accountId}/follow`).then((response) => {
+  axios.get(`/api/accounts/${accountId}/follow`).then((response) => {
     const hasFollowed = response.data.hasFollowed; // ステータス取得
     handleFollowDisplay(hasFollowed);
   });
@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // フォローする
   $(".profile-unfollow").on("click", () => {
     axios
-      .post(`/accounts/${accountId}/follow`)
+      .post(`/api/accounts/${accountId}/follow`)
       .then((response) => {
         if (response.data.status === "ok") {
           $(".profile-follow").removeClass("hidden");
@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // フォロー外す
   $(".profile-follow").on("click", () => {
     axios
-      .post(`/accounts/${accountId}/unfollow`)
+      .post(`/api/accounts/${accountId}/unfollow`)
       .then((response) => {
         if (response.data.status === "ok") {
           $(".profile-unfollow").removeClass("hidden");
