@@ -9,6 +9,7 @@ ja:
     attributes:
       post:
         content: "投稿内容"
+        images: "画像"
   date:
     abbr_day_names:
       - 日
