@@ -31,6 +31,8 @@ gem 'concurrent-ruby', '1.3.4'
 gem 'hamlit'
 gem 'devise'
 gem 'sidekiq'
+gem 'faker'
+gem 'factory_bot_rails'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
@@ -55,6 +57,7 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'letter_opener'
   gem 'letter_opener_web', '~> 1.0'
+  gem 'rspec-rails'
 end
 
 group :test do
