@@ -2,12 +2,14 @@ FactoryBot.define do
   factory :post do
     content { Faker::Lorem.characters(number: 50) }
 
-    after(:build) do |post|
-      post.image.attach(
-        io: File.open(Rails.root.join('spec/fixtures/test.jpg')),
-        filename: 'test.jpg',
-        content_type: 'image/jpeg'
-      )
+    trait :with_image do
+      after(:build) do |post|
+        post.image.attach(
+          io: File.open(Rails.root.join('app/assets/images/back-icon.png')),
+          filename: 'back-icon.png',
+          content_type: 'image/png'
+        )
+      end
     end
   end
 end
