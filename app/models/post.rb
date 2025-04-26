@@ -19,6 +19,7 @@ class Post < ApplicationRecord
   validates :content, length: { minimum: 2, maximum: 100 }
 
   has_many_attached :images
+  validates :images, presence: true
 
   has_many :likes, dependent: :destroy
   has_many :comments, dependent: :destroy
