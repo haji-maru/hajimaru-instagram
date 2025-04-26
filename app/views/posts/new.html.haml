@@ -14,9 +14,9 @@
 
   .post-contributor
     .post-avatar
-      = image_tag url_for(@profile.avatar)
+      = image_tag current_user.avatar_image
     .post-username
-      %p= @user.username
+      %p= current_user.username
 
   = form_with(model: @post, url: posts_path, method: 'post', local: true) do |f|
     .field
