@@ -2,7 +2,6 @@ require 'rails_helper'
 
 RSpec.describe 'Posts', type: :request do
   let!(:user) { create(:user) }
-  let!(:posts) { create_list(:post, 3, user: user) }
 
   before do
     sign_in user
