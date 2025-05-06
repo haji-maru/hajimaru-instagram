@@ -1,11 +1,9 @@
 class Apps::ProfilesController < Apps::ApplicationController
-  before_action :set_profile, only: [:show, :edit, :update]
+  before_action :set_profile, only: [:show, :update]
 
   def show
   end
 
-  def edit
-  end
 
   def update
     @profile.assign_attributes(profile_params)
