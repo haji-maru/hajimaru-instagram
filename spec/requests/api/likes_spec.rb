@@ -32,4 +32,17 @@ RSpec.describe 'Api::Likes', type: :request do
       end
     end
   end
+
+  describe 'POST /api/likes' do
+    context 'いいねされた場合' do
+      it 'like_countが1増える' do
+        post api_like_path(post_id: test_post.id), params: { like: { post_id: test_post } }
+        expect(response).to have_http_status(200)
+
+        body = JSON.parse(response.body)
+        expect(body['status']).to eq ('ok')
+        expect(body['like_count']).to eq (1)
+      end
+    end
+  end
 end
