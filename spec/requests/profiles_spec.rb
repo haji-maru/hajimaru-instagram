@@ -36,8 +36,8 @@ RSpec.describe 'Profiles', type: :request do
 
   describe 'PATCH /profile' do
     context 'プロフィール画像の更新に失敗した場合' do
-      let(:invalid_file_path) { Rails.root.join('app/assets/images/invalid.txt') }
-      let(:invalid_file) { fixture_file_upload(invalid_file_path, 'text/plain') }
+      let!(:invalid_file_path) { Rails.root.join('app/assets/images/invalid.txt') }
+      let!(:invalid_file) { fixture_file_upload(invalid_file_path, 'text/plain') }
 
       it '422ステータスとエラーメッセージを返す' do
         patch profile_path, params: { profile: { avatar: invalid_file } }
