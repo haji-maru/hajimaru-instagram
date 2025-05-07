@@ -33,4 +33,23 @@ RSpec.describe 'Profiles', type: :request do
       end
     end
   end
+
+  describe 'PATCH /profile' do
+    context 'プロフィール画像の更新に失敗した場合' do
+      let(:invalid_file_path) { Rails.root.join('app/assets/images/invalid.txt') }
+      let(:invalid_file) { fixture_file_upload(invalid_file_path, 'text/plain') }
+
+      it '422ステータスとエラーメッセージを返す' do
+        patch profile_path, params: { profile: { avatar: invalid_file } }
+
+        expect(response).to have_http_status(:unprocessable_entity)
+
+        body = JSON.parse(response.body)
+        expect(body['status']).to eq('error')
+        expect(body['message']).to eq('更新できませんでした')
+        expect(body['errors']).to be_an(Array)
+        expect(body['errors']).not_to be_empty
+      end
+    end
+  end
 end

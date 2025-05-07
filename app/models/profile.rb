@@ -17,7 +17,18 @@ class Profile < ApplicationRecord
 
   has_one_attached :avatar
 
+  validate :avatar_must_be_image
+
   def avatar_path
     Rails.application.routes.url_helpers.rails_blob_path(avatar, only_path: true) if avatar.attached?
+  end
+
+  private
+
+  def avatar_must_be_image
+    return unless avatar.attached?
+    if !avatar.content_type.in?(%w[image/jpeg image/png image/gif])
+      errors.add(:avatar, 'は画像ファイル（jpeg/png/gif）のみアップロード可能です')
+    end
   end
 end

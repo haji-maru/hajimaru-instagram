@@ -10,7 +10,7 @@ class Apps::ProfilesController < Apps::ApplicationController
     if @profile.save
       render json: { status: 'ok', message: '更新できました', avatar_url: url_for(@profile.avatar) }
     else
-      render json: { status: 'error', message: '更新できませんでした', errors: @profile.errors.full_messages}, status: :unprocessable_entity
+      render json: { status: 'error', message: '更新できませんでした', errors: @profile.errors.full_messages }, status: :unprocessable_entity
     end
   end
 
