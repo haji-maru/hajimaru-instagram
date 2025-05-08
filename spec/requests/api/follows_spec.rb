@@ -36,4 +36,18 @@ RSpec.describe 'Api::Follows', type: :request do
       end
     end
   end
+
+  describe 'POST /api/follows' do
+    context 'フォローされた場合' do
+      it 'follower_count が1増える' do
+        expect { post api_follow_path(account_id: other_user.id) }.to change { other_user.follower_count }.by(1)
+        expect(response).to have_http_status(200)
+
+        body = JSON.parse(response.body)
+        expect(body['status']).to eq('ok')
+        expect(body['follower_count']).to eq(1) # userがフォローされている
+        expect(body['following_count']).to eq(0) # other_userをフォローしていない
+      end
+    end
+  end
 end
