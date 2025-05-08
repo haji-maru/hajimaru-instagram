@@ -1,6 +1,5 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_post, only: [:index, :show, :new, :create]
 
   def index
     @posts = Post.all
@@ -32,10 +31,5 @@ class PostsController < ApplicationController
 
   def post_params
     params.require(:post).permit(:content, images: [])
-  end
-
-  def set_post
-    @profile = current_user.prepare_profile
-    @user = current_user
   end
 end

@@ -18,7 +18,7 @@ Rails.application.routes.draw do
 
   scope module: :apps do
     resource :timeline, only: [:show]
-    resource :profile, only: [:show, :edit, :update]
+    resource :profile, only: [:show, :update]
   end
 
   namespace :api, defaults: { format: :json } do
