@@ -14,4 +14,10 @@ RSpec.describe 'Post', type: :system do
       expect(page).to have_css('.post-comments', text: post.content)
     end
   end
+
+  it '吹き出しアイコンを押したらコメント一覧が表示される' do
+     visit root_path
+     all('.comment-button').first.click
+     expect(page).to have_css('.post-comment-title', text: 'Comment')
+  end
 end
