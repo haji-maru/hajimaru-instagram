@@ -16,8 +16,14 @@ RSpec.describe 'Post', type: :system do
   end
 
   it '吹き出しアイコンを押したらコメント一覧が表示される' do
-     visit root_path
-     all('.comment-button').first.click
-     expect(page).to have_css('.post-comment-title', text: 'Comment')
+    visit root_path
+    all('.comment-button').first.click
+    expect(page).to have_css('.post-comment-title', text: 'Comment')
+  end
+
+  it 'アバターアイコンを押したらプロフィールが表示される' do
+    visit root_path
+    all('.post-avatar').first.click
+    expect(page).to have_css('.profile-username', text: user.username)
   end
 end
