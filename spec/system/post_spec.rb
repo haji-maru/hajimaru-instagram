@@ -26,4 +26,10 @@ RSpec.describe 'Post', type: :system do
     all('.post-avatar').first.click
     expect(page).to have_css('.profile-username', text: user.username)
   end
+
+  it 'Timelineを押したらタイムラインが表示される' do
+    visit root_path
+    click_link('Timeline')
+    expect(page).to have_current_path(timeline_path)
+  end
 end
