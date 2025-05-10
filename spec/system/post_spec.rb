@@ -32,4 +32,11 @@ RSpec.describe 'Post', type: :system do
     click_link('Timeline')
     expect(page).to have_current_path(timeline_path)
   end
+
+  it 'カメラアイコンを押したら投稿ページが表示される' do
+    visit root_path
+    find('.post-create-icon').click
+    expect(page).to have_current_path(new_post_path)
+    expect(page).to have_css('.post-username', text: user.username)
+  end
 end
