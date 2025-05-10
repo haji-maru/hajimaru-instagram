@@ -4,4 +4,10 @@ FactoryBot.define do
     password { 'password' }
     username { Faker::Name.name }
   end
+
+  trait :with_profile do
+    after :build do |user|
+      build(:profile, user: user)
+    end
+  end
 end
