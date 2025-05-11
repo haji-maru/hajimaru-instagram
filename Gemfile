@@ -22,23 +22,23 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
-gem 'annotate'
 gem 'active_decorator'
 gem 'active_model_serializers'
+gem 'annotate'
 gem 'better_errors'
 gem 'binding_of_caller'
 gem 'concurrent-ruby', '1.3.4'
-gem 'hamlit'
 gem 'devise'
-gem 'sidekiq'
-gem 'faker'
 gem 'factory_bot_rails'
+gem 'faker'
+gem 'hamlit'
+gem 'image_processing', '>= 1.2'
+gem 'importmap-rails'
 gem 'mutex_m'
 gem 'psych', '~> 3.1'
-gem "importmap-rails"
-gem 'turbo-rails'
+gem 'sidekiq'
 gem 'stimulus-rails'
-gem "image_processing", ">= 1.2"
+gem 'turbo-rails'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
@@ -59,11 +59,11 @@ group :development do
   gem 'web-console', '>= 3.3.0'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'erb2haml'
+  gem 'letter_opener'
+  gem 'letter_opener_web', '~> 3.0'
+  gem 'rspec-rails'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-  gem 'letter_opener'
-  gem 'letter_opener_web', '~> 1.0'
-  gem 'rspec-rails'
 end
 
 group :test do
