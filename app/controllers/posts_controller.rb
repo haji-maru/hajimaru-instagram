@@ -20,7 +20,7 @@ class PostsController < ApplicationController
       redirect_to posts_path, notice: '保存できました'
     else
       flash.now[:error] = '保存に失敗しました'
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
