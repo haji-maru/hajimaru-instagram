@@ -38,6 +38,7 @@ gem 'psych', '~> 3.1'
 gem "importmap-rails"
 gem 'turbo-rails'
 gem 'stimulus-rails'
+gem "image_processing", ">= 1.2"
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
