@@ -12,6 +12,5 @@ RSpec.describe 'profile', type: :system do
       visit profile_path
       expect(page).to have_css('.profile-username', text: user.username)
     end
-
   end
 end
