@@ -19,3 +19,5 @@ module HajimaruInstagram
     config.active_job.queue_adapter = :sidekiq
   end
 end
+
+Dotenv::Railtie.load if %w[development test].include? ENV['RAILS_ENV']
