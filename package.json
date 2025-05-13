@@ -12,7 +12,8 @@
     "turbolinks": "^5.2.0"
   },
   "engines": {
-    "node": "22.11.0"
+    "node": "22.11.0",
+    "yarn": "1.x"
   },
   "version": "0.1.0",
   "devDependencies": {
