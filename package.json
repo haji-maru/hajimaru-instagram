@@ -12,7 +12,7 @@
     "turbolinks": "^5.2.0"
   },
   "engines": {
-    "node": "16.x",
+    "node": "18.x",
     "yarn": "1.x"
   },
   "version": "0.1.0",
