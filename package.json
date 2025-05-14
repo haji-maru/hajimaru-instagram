@@ -12,15 +12,12 @@
     "turbolinks": "^5.2.0"
   },
   "engines": {
-    "node": "22.11.0",
+    "node": "16.x",
     "yarn": "1.x"
   },
   "version": "0.1.0",
   "devDependencies": {
     "@webpack-cli/serve": "^3.0.1",
     "webpack-dev-server": "~3"
-  },
-  "scripts": {
-    "build": "export NODE_OPTIONS=--openssl-legacy-provider"
   }
 }
