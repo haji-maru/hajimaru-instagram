@@ -19,5 +19,8 @@
   "devDependencies": {
     "@webpack-cli/serve": "^3.0.1",
     "webpack-dev-server": "~3"
+  },
+  "scripts": {
+    "build": "export NODE_OPTIONS=--openssl-legacy-provider && webpack"
   }
 }
