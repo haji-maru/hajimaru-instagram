@@ -21,6 +21,6 @@
     "webpack-dev-server": "~3"
   },
   "scripts": {
-    "build": "export NODE_OPTIONS=--openssl-legacy-provider && webpack"
+    "build": "export NODE_OPTIONS=--openssl-legacy-provider"
   }
 }
