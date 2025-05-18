@@ -1,0 +1,17 @@
+{
+  "name": "hajimaru instagram app",
+  "description": "This is instagramapp",
+  "keywords": [],
+  "website": "",
+  "repository": "https://github.com/haji-maru/hajimaru-instagram",
+  "env": {},
+  "addons": ["heroku-postgresql:essential-0"],
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    },
+    {
+      "url": "heroku/ruby"
+    }
+  ]
+}
